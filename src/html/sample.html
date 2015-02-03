@@ -3,8 +3,28 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="js/jquery.js"></script>
+    <script src="js/mustache.js"></script>
 </head>
 <body>
+<div id="target">loading...</div>
+<div id="target2">loading...</div>
 
+<script id="template" type="x-tmpl-mustache">
+Hello {{ name }}!
+</script>
+<script>
+    window.onload = function () {
+        var template = $('#template').html();
+        Mustache.parse(template);   // optional, speeds up future uses
+        var rendered = Mustache.render(template, {name: "Luke"});
+        $('#target').html(rendered);
+
+        $.get('template/template.mustache', function(template) {
+            var rendered = Mustache.render(template, {title: 'ishikawa',score: 32});
+            $('#target2').html(rendered);
+        });
+    };
+</script>
 </body>
 </html>
