@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                 options: {
                     open: true,
                     port: '<%= port %>',
-                    livereload: 35729,
+                    livereload: 25729,
                     hostname: 'localhost',
                     base: [ '<%= dirs.src %>' ]
                 }
@@ -46,7 +46,8 @@ module.exports = function (grunt) {
             tasks: ['build'],
             reload: {
                 options: {
-                    livereload: '<%= connect.livereload %>'
+                    //livereload: '<%= connect.livereload %>'
+                    livereload: 25729
                 },
                 files: [
                     '<%= dirs.src %>/**/*.js',
